@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+    <style>
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <h4>
+        <li><div th:utext ="${user.getId()}">...</div></li>
+        <li><div th:utext ="${user.getName()}">...</div></li>
+        <li><div th:utext ="${user.getLastName()}">...</div></li>
+        <li><div th:utext ="${user.getAge()}">...</div></li>
+        <br/>
+        <br/>
+        <a th:href="@{/users/{id}/edit(id=${user.getId()})}">change user's data</a>
+        <br/>
+        <br/>
+
+        <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
+            <input type="submit" value="Delete user"/>
+        </form>
+
+        <a href="/users">Back</a>
+    </h4>
+</ul>
+</body>
+</html>
